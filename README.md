@@ -55,26 +55,11 @@ Full-screen ~10s tours of the **Living Network Planetarium** war-room UI — lum
 
 ![Galaxy spin and node inspect](media/gifs/02-galaxy-orbit.gif)
 
-### 3. English ask: listeners & remoting
-
-![English ask listeners and remoting](media/gifs/03-ask-listeners.gif)
-
-### 4. Expiring certs lens
-
-![Expiring certs lens](media/gifs/04-cert-radar.gif)
-
-### 5. Blast radius theater
-
-![Blast radius theater](media/gifs/05-blast-radius.gif)
-
 <details>
-<summary>MP4 sources</summary>
+<summary>Media</summary>
 
 - [01-login-cosmic.mp4](media/videos/01-login-cosmic.mp4)
 - [02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4)
-- [03-ask-listeners.mp4](media/videos/03-ask-listeners.mp4)
-- [04-cert-radar.mp4](media/videos/04-cert-radar.mp4)
-- [05-blast-radius.mp4](media/videos/05-blast-radius.mp4)
 
 </details>
 
