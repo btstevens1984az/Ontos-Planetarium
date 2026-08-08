@@ -47,15 +47,10 @@ Full-screen of the **Living Network Planetarium** war-room UI — luminous glass
 
 ![Cosmic login and identity providers](media/gifs/01-login-cosmic.gif)
 
-### 2. Galaxy spin & node inspect
-
-![Galaxy spin and node inspect](media/gifs/02-galaxy-orbit.gif)
-
 <details>
 <summary>Media</summary>
 
 - [01-login-cosmic.mp4](media/videos/01-login-cosmic.mp4)
-- [02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4)
 
 </details>
 
