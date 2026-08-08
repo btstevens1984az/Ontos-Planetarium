@@ -1,0 +1,18 @@
+services:
+  planetarium:
+    build: .
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      ONTOS_ENV: production
+      ONTOS_CORS_ORIGINS: http://localhost:8080,http://127.0.0.1:8080
+      ONTOS_DATABASE_URL: sqlite+aiosqlite:///./data/ontos.db
+    volumes:
+      # Persist auth DB outside the image; never commit this folder
+      - ontos-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  ontos-data:

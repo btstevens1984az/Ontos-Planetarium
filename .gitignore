@@ -1,0 +1,70 @@
+# --- Secrets & local machine state (never commit) ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+.secrets/
+credentials.json
+service-account*.json
+
+# --- Runtime / local data ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+backend/.data/
+backend/data/
+uploads/
+tmp/
+.cache/
+
+# --- OS / editor (machine-specific) ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/node_modules/
+.npm/
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# --- Docker local overrides ---
+docker-compose.override.yml
+
+# --- Test / coverage artifacts ---
+coverage/
+.nyc_output/
+
+# --- Local recordings scratch (keep committed media/videos demos) ---
+.recordings/
+**/playwright-report/
+**/test-results/
