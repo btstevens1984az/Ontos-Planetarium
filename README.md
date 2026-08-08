@@ -41,11 +41,7 @@ In Greek, **ὄντως (ontos)** means *really / truly / indeed* — what is re
 
 ## Live demos
 
-Full-screen ~10s tours of the **Living Network Planetarium** war-room UI — luminous glass-ring nodes, ask/explore lenses, and blast radius. Stacked in order, playing inline on this page.
-
-<p align="center">
-  <img src="media/images/living-network-planetarium.png" alt="Living Network Planetarium war-room UI" width="100%" />
-</p>
+Full-screen of the **Living Network Planetarium** war-room UI — luminous glass-ring nodes, ask/explore lenses, and blast radius.
 
 ### 1. Cosmic login & identity providers
 
