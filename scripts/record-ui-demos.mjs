@@ -100,10 +100,9 @@ await record('04-cert-radar', async (page) => {
 
 await record('05-blast-radius', async (page) => {
   await login(page)
-  await page.getByRole('button', { name: /BLAST RADIUS/i }).first().click()
+  await page.getByRole('button', { name: 'BLAST RADIUS', exact: true }).click()
   await page.waitForTimeout(2000)
-  const blast = page.getByRole('button', { name: 'Blast Radius' })
-  if (await blast.count()) await blast.click()
+  await page.locator('.action-row').getByRole('button', { name: 'Blast Radius', exact: true }).click()
   await page.waitForTimeout(3000)
 })
 
