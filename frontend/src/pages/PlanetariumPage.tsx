@@ -99,8 +99,10 @@ export default function PlanetariumPage({ user, providers, onLogout }: Props) {
 
   const stats = snap?.stats || {}
   const meta = selected?.meta || {}
-  const displayEmail = user.email || 'analyst@ontos.ai'
-  const displayRole = user.role || 'Viewer'
+  // Concept mock identity for demo mode; real auth still uses the signed-in account elsewhere.
+  const displayEmail =
+    snap?.demo || providers?.demo_mode ? 'analyst@ontos.ai' : user.email || user.username
+  const displayRole = snap?.demo || providers?.demo_mode ? 'Viewer' : user.role || 'Viewer'
   const avatarLetter = (displayEmail[0] || 'A').toUpperCase()
   const inbound = viewEdges.filter((e) => e.target === selected?.id).length
   const outbound = viewEdges.filter((e) => e.source === selected?.id).length
