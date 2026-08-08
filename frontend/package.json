@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/three": "^0.185.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "react-force-graph-2d": "^1.29.1",
     "react-force-graph-3d": "^1.29.1",
     "three": "^0.185.1",
+    "three-spritetext": "^1.10.0",
     "zustand": "^5.0.14"
   },
   "devDependencies": {
@@ -22,6 +25,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.4",
     "oxlint": "^1.75.0",
+    "playwright": "^1.62.1",
     "typescript": "~6.0.2",
     "vite": "^8.2.0"
   }

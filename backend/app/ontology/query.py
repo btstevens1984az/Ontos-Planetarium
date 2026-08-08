@@ -1,4 +1,4 @@
-"""Lightweight English query compiler over the ontology graph."""
+"""English query compiler over the ontology graph."""
 
 from __future__ import annotations
 
@@ -13,69 +13,75 @@ def compile_query(snapshot: Snapshot, q: str) -> dict[str, Any]:
     node_ids: set[str] = set()
     reason = "matched"
 
-    if not text or text in {"all", "show all", "everything"}:
+    if not text or text in {"all", "show all", "everything", "full constellation"}:
         node_ids = {n.id for n in snapshot.nodes}
         reason = "full constellation"
     elif "listen" in text or "who is listening" in text:
+        for n in snapshot.nodes:
+            if n.kind in {"listener", "endpoint"} or n.meta.get("port"):
+                if n.kind in {"listener", "endpoint", "cert"} or "listen" in text:
+                    pass
         for e in snapshot.edges:
-            if e.kind == "listen":
+            if e.kind == "listen" or e.kind == "exposes":
                 node_ids.add(e.source)
                 node_ids.add(e.target)
+        for n in snapshot.nodes:
+            if n.kind in {"listener", "endpoint"}:
+                node_ids.add(n.id)
         reason = "listeners"
-    elif "ssh" in text or "22" in text or "remote access" in text or "rdp" in text:
+    elif "ssh" in text or text.strip() == "22":
+        for n in snapshot.nodes:
+            if n.meta.get("port") == 22 or "ssh" in n.label.lower():
+                node_ids.add(n.id)
+        reason = "SSH surfaces"
+    elif "rdp" in text or "3389" in text or "remote access" in text:
         for n in snapshot.nodes:
             port = n.meta.get("port")
-            label = n.label.lower()
-            if port in {22, 3389} or "ssh" in label or "bastion" in label or "rdp" in label:
+            if port in {22, 3389} or "ssh" in n.label.lower() or "rdp" in n.label.lower() or "bastion" in n.label.lower():
                 node_ids.add(n.id)
         reason = "remoting surfaces"
-    elif "cert" in text or "expir" in text:
+    elif "cert" in text or "tls" in text or "443" in text or "expir" in text:
         for n in snapshot.nodes:
-            if n.kind == "cert":
+            if n.kind == "cert" or n.meta.get("port") == 443 or "tls" in n.label.lower() or "443" in n.label:
                 node_ids.add(n.id)
-                days = n.meta.get("days_left")
-                if isinstance(days, int) and days <= 30:
-                    reason = "expiring certs"
         if "expir" in text:
             node_ids = {
                 n.id
                 for n in snapshot.nodes
-                if n.kind == "cert" and isinstance(n.meta.get("days_left"), int) and n.meta["days_left"] <= 30
+                if n.kind == "cert"
+                and isinstance(n.meta.get("days_left"), int)
+                and n.meta["days_left"] <= 30
             }
             reason = "certs expiring within 30 days"
-    elif "443" in text or "https" in text or "chatty" in text:
-        for n in snapshot.nodes:
-            if n.meta.get("port") == 443 or "443" in n.label:
-                node_ids.add(n.id)
-        for e in snapshot.edges:
-            if e.kind == "established":
-                node_ids.add(e.source)
-                node_ids.add(e.target)
-        reason = "HTTPS / chatty outbound"
-    elif "database" in text or "postgres" in text or "5432" in text:
-        for n in snapshot.nodes:
-            if "postgres" in n.label.lower() or "db" in n.label.lower() or n.meta.get("port") == 5432:
-                node_ids.add(n.id)
-        reason = "data plane"
-    elif "agent" in text or "cloud" in text:
-        for n in snapshot.nodes:
-            if "agent" in n.label.lower() or "cloud" in n.label.lower():
-                node_ids.add(n.id)
-        reason = "cloud agents"
-    elif m := re.search(r"blast\s+(\S+)", text):
-        target = m.group(1).strip(":")
+        else:
+            reason = "TLS / certs"
+    elif "blast" in text:
+        m = re.search(r"blast\s+(\S+)", text)
+        target = m.group(1).strip(":") if m else "api-gateway"
         node_ids = _blast(snapshot, target)
         reason = f"blast radius around {target}"
+    elif "host" in text:
+        node_ids = {n.id for n in snapshot.nodes if n.kind == "host"}
+        reason = "hosts"
+    elif "service" in text:
+        node_ids = {n.id for n in snapshot.nodes if n.kind == "service"}
+        reason = "services"
+    elif "database" in text or "postgres" in text or "5432" in text:
+        for n in snapshot.nodes:
+            if "db" in n.label.lower() or "postgres" in n.label.lower() or n.meta.get("port") == 5432:
+                node_ids.add(n.id)
+        reason = "data plane"
+    elif "cloud" in text or "agent" in text or "s3" in text:
+        for n in snapshot.nodes:
+            if "cloud" in str(n.meta.get("icon", "")) or "s3" in n.label.lower() or "cdn" in n.label.lower():
+                node_ids.add(n.id)
+        reason = "cloud / external"
     else:
-        # Substring search on labels
         for n in snapshot.nodes:
             if text in n.label.lower() or text in n.id.lower():
                 node_ids.add(n.id)
-        reason = "label search"
-        if not node_ids:
-            reason = "no matches"
+        reason = "label search" if node_ids else "no matches"
 
-    # Include one-hop neighbors for context
     expanded = set(node_ids)
     for e in snapshot.edges:
         if e.source in node_ids or e.target in node_ids:
@@ -83,11 +89,7 @@ def compile_query(snapshot: Snapshot, q: str) -> dict[str, Any]:
             expanded.add(e.target)
 
     nodes = [n.to_dict() for n in snapshot.nodes if n.id in expanded]
-    edges = [
-        e.to_dict()
-        for e in snapshot.edges
-        if e.source in expanded and e.target in expanded
-    ]
+    edges = [e.to_dict() for e in snapshot.edges if e.source in expanded and e.target in expanded]
     return {
         "query": q,
         "reason": reason,
@@ -123,9 +125,5 @@ def blast_radius(snapshot: Snapshot, target: str) -> dict[str, Any]:
     return {
         "target": target,
         "nodes": [n.to_dict() for n in snapshot.nodes if n.id in ids],
-        "edges": [
-            e.to_dict()
-            for e in snapshot.edges
-            if e.source in ids and e.target in ids
-        ],
+        "edges": [e.to_dict() for e in snapshot.edges if e.source in ids and e.target in ids],
     }
