@@ -41,17 +41,51 @@ In Greek, **ὄντως (ontos)** means *really / truly / indeed* — what is re
 
 ## Live demos
 
-| # | Tour | Video |
-|---|---|---|
-| 1 | Cosmic login & identity providers | [media/videos/01-login-cosmic.mp4](media/videos/01-login-cosmic.mp4) |
-| 2 | Galaxy spin & node inspect | [media/videos/02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4) |
-| 3 | English ask: listeners & remoting | [media/videos/03-ask-listeners.mp4](media/videos/03-ask-listeners.mp4) |
-| 4 | Expiring certs lens | [media/videos/04-cert-radar.mp4](media/videos/04-cert-radar.mp4) |
-| 5 | Blast radius theater | [media/videos/05-blast-radius.mp4](media/videos/05-blast-radius.mp4) |
+Animated ~10s tours that play directly on this page (also available as [MP4s](media/videos/)).
 
-<p align="center">
-  <img src="media/images/concept-planetarium.png" alt="Planetarium concept UI" width="900" />
-</p>
+<table>
+<tr>
+<td width="50%" valign="top">
+
+**1. Cosmic login & identity providers**
+
+<img src="media/gifs/01-login-cosmic.gif" alt="Cosmic login and identity providers" width="100%" />
+
+</td>
+<td width="50%" valign="top">
+
+**2. Galaxy spin & node inspect**
+
+<img src="media/gifs/02-galaxy-orbit.gif" alt="Galaxy spin and node inspect" width="100%" />
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+**3. English ask: listeners & remoting**
+
+<img src="media/gifs/03-ask-listeners.gif" alt="English ask listeners and remoting" width="100%" />
+
+</td>
+<td width="50%" valign="top">
+
+**4. Expiring certs lens**
+
+<img src="media/gifs/04-cert-radar.gif" alt="Expiring certs lens" width="100%" />
+
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
+
+**5. Blast radius theater**
+
+<img src="media/gifs/05-blast-radius.gif" alt="Blast radius theater" width="80%" />
+
+</td>
+</tr>
+</table>
 
 ---
 
