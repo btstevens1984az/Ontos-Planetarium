@@ -35,10 +35,13 @@ export default function Galaxy({ nodes, edges, highlightIds, selectedId, onSelec
   )
 
   useEffect(() => {
-    const t = setTimeout(() => {
-      fgRef.current?.zoomToFit?.(400, 80)
-    }, 400)
-    return () => clearTimeout(t)
+    const fit = () => fgRef.current?.zoomToFit?.(600, 40)
+    const t1 = setTimeout(fit, 250)
+    const t2 = setTimeout(fit, 900)
+    return () => {
+      clearTimeout(t1)
+      clearTimeout(t2)
+    }
   }, [data])
 
   return (

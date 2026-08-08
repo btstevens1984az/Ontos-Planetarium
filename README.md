@@ -41,51 +41,38 @@ In Greek, **ὄντως (ontos)** means *really / truly / indeed* — what is re
 
 ## Live demos
 
-Animated ~10s tours that play directly on this page (also available as [MP4s](media/videos/)).
+Full-screen ~10s tours — stacked in order, playing inline on this page.
 
-<table>
-<tr>
-<td width="50%" valign="top">
+### 1. Cosmic login & identity providers
 
-**1. Cosmic login & identity providers**
+![Cosmic login and identity providers](media/gifs/01-login-cosmic.gif)
 
-<img src="media/gifs/01-login-cosmic.gif" alt="Cosmic login and identity providers" width="100%" />
+### 2. Galaxy spin & node inspect
 
-</td>
-<td width="50%" valign="top">
+![Galaxy spin and node inspect](media/gifs/02-galaxy-orbit.gif)
 
-**2. Galaxy spin & node inspect**
+### 3. English ask: listeners & remoting
 
-<img src="media/gifs/02-galaxy-orbit.gif" alt="Galaxy spin and node inspect" width="100%" />
+![English ask listeners and remoting](media/gifs/03-ask-listeners.gif)
 
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
+### 4. Expiring certs lens
 
-**3. English ask: listeners & remoting**
+![Expiring certs lens](media/gifs/04-cert-radar.gif)
 
-<img src="media/gifs/03-ask-listeners.gif" alt="English ask listeners and remoting" width="100%" />
+### 5. Blast radius theater
 
-</td>
-<td width="50%" valign="top">
+![Blast radius theater](media/gifs/05-blast-radius.gif)
 
-**4. Expiring certs lens**
+<details>
+<summary>MP4 sources</summary>
 
-<img src="media/gifs/04-cert-radar.gif" alt="Expiring certs lens" width="100%" />
+- [01-login-cosmic.mp4](media/videos/01-login-cosmic.mp4)
+- [02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4)
+- [03-ask-listeners.mp4](media/videos/03-ask-listeners.mp4)
+- [04-cert-radar.mp4](media/videos/04-cert-radar.mp4)
+- [05-blast-radius.mp4](media/videos/05-blast-radius.mp4)
 
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center">
-
-**5. Blast radius theater**
-
-<img src="media/gifs/05-blast-radius.gif" alt="Blast radius theater" width="80%" />
-
-</td>
-</tr>
-</table>
+</details>
 
 ---
 

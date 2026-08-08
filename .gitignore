@@ -68,3 +68,4 @@ coverage/
 .recordings/
 **/playwright-report/
 **/test-results/
+frontend/record-demos.mjs
