@@ -41,16 +41,39 @@ In Greek, **ὄντως (ontos)** means *really / truly / indeed* — what is re
 
 ## Live demos
 
-Full-screen of the **Living Network Planetarium** war-room UI — luminous glass-ring nodes, ask/explore lenses, and blast radius.
+Four **different** real UI recordings — each sells a distinct Planetarium moment.
 
-### 1. Cosmic login & identity providers
+### 1. Secure operator login
 
-![Cosmic login and identity providers](media/gifs/01-login-cosmic.gif)
+Local · Active Directory · Azure AD — then enter the planetarium.
+
+![Secure operator login](media/gifs/01-login-cosmic.gif)
+
+### 2. Living constellation & inspector
+
+Glass-ring nodes, pan/zoom the galaxy, inspect ownership and process.
+
+![Living constellation and inspector](media/gifs/02-galaxy-orbit.gif)
+
+### 3. Ask in English → remoting surfaces
+
+Type *who is listening*, then drill **SSH** / **RDP** — the graph collapses to the attack surface.
+
+![English ask and remoting lenses](media/gifs/03-ask-listeners.gif)
+
+### 4. TLS certs → blast radius
+
+TLS / cert lens, then **Blast Radius** on the gateway — a tight risk star of named infrastructure.
+
+![TLS certs and blast radius](media/gifs/04-cert-radar.gif)
 
 <details>
 <summary>Media</summary>
 
 - [01-login-cosmic.mp4](media/videos/01-login-cosmic.mp4)
+- [02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4)
+- [03-ask-listeners.mp4](media/videos/03-ask-listeners.mp4)
+- [04-cert-radar.mp4](media/videos/04-cert-radar.mp4)
 
 </details>
 
