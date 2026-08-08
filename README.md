@@ -41,31 +41,31 @@ In Greek, **ὄντως (ontos)** means *really / truly / indeed* — what is re
 
 ## Live demos
 
-Full-screen ~10s tours of the **Living Network Planetarium** war-room UI — luminous glass-ring nodes, ask/explore lenses, and blast radius. Stacked in order, playing inline on this page.
+Four **different** real UI recordings — each sells a distinct Planetarium moment.
 
-<p align="center">
-  <img src="media/images/living-network-planetarium.png" alt="Living Network Planetarium war-room UI" width="100%" />
-</p>
+### 1. Secure operator login
 
-### 1. Cosmic login & identity providers
+Local · Active Directory · Azure AD — then enter the planetarium.
 
-![Cosmic login and identity providers](media/gifs/01-login-cosmic.gif)
+![Secure operator login](media/gifs/01-login-cosmic.gif)
 
-### 2. Galaxy spin & node inspect
+### 2. Living constellation & inspector
 
-![Galaxy spin and node inspect](media/gifs/02-galaxy-orbit.gif)
+Glass-ring nodes, pan/zoom the galaxy, inspect `api-gateway-01` ownership and process.
 
-### 3. English ask: listeners & remoting
+![Living constellation and inspector](media/gifs/02-galaxy-orbit.gif)
 
-![English ask listeners and remoting](media/gifs/03-ask-listeners.gif)
+### 3. Ask in English → remoting surfaces
 
-### 4. Expiring certs lens
+Type *who is listening*, then drill **SSH** / **RDP** — the graph collapses to the attack surface.
 
-![Expiring certs lens](media/gifs/04-cert-radar.gif)
+![English ask and remoting lenses](media/gifs/03-ask-listeners.gif)
 
-### 5. Blast radius theater
+### 4. TLS certs → blast radius
 
-![Blast radius theater](media/gifs/05-blast-radius.gif)
+TLS / cert lens, then **Blast Radius** on the gateway — a tight risk star of named infrastructure.
+
+![TLS certs and blast radius](media/gifs/04-cert-radar.gif)
 
 <details>
 <summary>MP4 sources</summary>
@@ -74,7 +74,6 @@ Full-screen ~10s tours of the **Living Network Planetarium** war-room UI — lum
 - [02-galaxy-orbit.mp4](media/videos/02-galaxy-orbit.mp4)
 - [03-ask-listeners.mp4](media/videos/03-ask-listeners.mp4)
 - [04-cert-radar.mp4](media/videos/04-cert-radar.mp4)
-- [05-blast-radius.mp4](media/videos/05-blast-radius.mp4)
 
 </details>
 

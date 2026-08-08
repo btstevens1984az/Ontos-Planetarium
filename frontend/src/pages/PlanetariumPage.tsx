@@ -450,10 +450,12 @@ export default function PlanetariumPage({ user, providers, onLogout }: Props) {
         </div>
         <div className="status-center">
           <span>
-            Nodes <strong>{String(stats.nodes ?? viewNodes.length)}</strong>
+            Nodes <strong>{filteredNodes.length}</strong>
+            <span style={{ opacity: 0.55 }}>/{String(stats.nodes ?? viewNodes.length)}</span>
           </span>
           <span>
-            Edges <strong>{String(stats.edges ?? viewEdges.length)}</strong>
+            Edges <strong>{filteredEdges.length}</strong>
+            <span style={{ opacity: 0.55 }}>/{String(stats.edges ?? viewEdges.length)}</span>
           </span>
           <span className="changed">
             What Changed <strong>10m ago</strong>
